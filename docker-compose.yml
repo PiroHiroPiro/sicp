@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  racket:
+    image: jackfirth/racket
+    container_name: racket_container
+    tty: true
+    volumes:
+      - ./source:/usr/src/source
+    working_dir: /usr/src/source
