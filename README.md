@@ -7,10 +7,16 @@
 
 ## Usage
 
-Run bash:
+Run file:
 
 ```console
-$ docker-compose run racket racket
+> docker-compose run racket racket utils/sample.rkt
+```
+
+Run interactive console:
+
+```console
+> docker-compose run racket racket
 ```
 
 ## Install
