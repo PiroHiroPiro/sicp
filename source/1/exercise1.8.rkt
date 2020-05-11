@@ -1,7 +1,6 @@
-(define (square x) (* x x))
-(define (cubic x) (* x x x))
-(define (average x y) (/ (+ x y) 2))
-(define (double x) (* 2 x))
+#lang racket
+
+(require "../utils/common.rkt")
 
 (define (cubic-root x)
   (define (good-enough? guess x) (< (abs (- (cubic guess) x)) 0.001))

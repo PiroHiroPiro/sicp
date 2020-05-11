@@ -1,5 +1,6 @@
-(define (square x) (* x x))
-(define (average x y) (/ (+ x y) 2))
+#lang racket
+
+(require "../utils/common.rkt")
 
 (define (sqrt x)
   (define (good-enough? after before x) (< (abs (- 1.0 (/ before after))) 0.001))
