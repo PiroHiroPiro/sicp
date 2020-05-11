@@ -1,4 +1,6 @@
-# Racket Docker Template
+# SICP
+
+A repository for learning the book "Structure and Interpretation of Computer Programs".
 
 ## Requirement
 
