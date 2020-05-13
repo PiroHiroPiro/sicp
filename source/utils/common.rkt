@@ -8,6 +8,6 @@
 
 (define (double x) (* 2 x))
 
-(define (cubic x) (* x x x))
+(define (cube x) (* x x x))
 
-(provide square sum-of-squares average double cubic)
+(provide square sum-of-squares average double cube)
