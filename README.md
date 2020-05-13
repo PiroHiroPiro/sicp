@@ -9,6 +9,12 @@ A repository for learning the book "Structure and Interpretation of Computer Pro
 
 ## Usage
 
+Run shell:
+
+```console
+> docker-compose run racket bash
+```
+
 Run file:
 
 ```console
