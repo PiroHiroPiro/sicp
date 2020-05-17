@@ -2,12 +2,20 @@
 
 (require "../utils/common.rkt")
 
+; (define
+;   (pascals-triangle l n)
+;   (cond
+;     ((or (< l 1) (< l n) (< n 1)) 0)
+;     ((and (= l 1) (= n 1)) 1)
+;     (else (+ (pascals-triangle (- l 1) (- n 1)) (pascals-triangle (- l 1) n)))
+;   )
+; )
+
 (define
   (pascals-triangle l n)
-  (cond
-    ((or (< l 1) (< l n) (< n 1)) 0)
-    ((and (= l 1) (= n 1)) 1)
-    (else (+ (pascals-triangle (- l 1) (- n 1)) (pascals-triangle (- l 1) n)))
+  (if (or (= l n) (= n 1))
+    1
+    (+ (pascals-triangle (- l 1) (- n 1)) (pascals-triangle (- l 1) n))
   )
 )
 
