@@ -2,9 +2,10 @@
 
 (require "../utils/common.rkt")
 
-(define (expt b n) (expt-iter b n 1))
+(require racket/trace)
 
-(define (expt-iter b counter product)
+(define (expt b n) (expt-iter b n 1))
+(trace-define (expt-iter b counter product)
   (if (= counter 0)
     product
     (expt-iter b
@@ -14,9 +15,12 @@
   )
 )
 
-(expt 2 3)
+; 8
+(expt 5 7)
+; 32
+(expt 13 31)
 
-(define (fast-expt b n)
+(trace-define (fast-expt b n)
   (cond
     ((= n 0) 1)
     ((even? n) (square (fast-expt b (/ n 2))))
@@ -24,14 +28,21 @@
   )
 )
 
-(fast-expt 2 3)
+; 6
+(fast-expt 5 7)
+; 10
+(fast-expt 13 31)
 
-(define (fastest-expt b n)
+(define (fastest-expt b n) (fastest-expt-iter b n 1))
+(trace-define (fastest-expt-iter b n a)
   (cond
-    ((= n 0) 1)
-    ((even? n) (fastest-expt (square b) (halve 2)))
-    (else (* b (fastest-expt b (- n 1))))
+    ((= n 0) a)
+    ((even? n) (fastest-expt-iter (square b) (halve n) a))
+    (else (fastest-expt-iter b (- n 1) (* a b)))
   )
 )
 
-(fastest-expt 2 3)
+; 6
+(fastest-expt 5 7)
+; 10
+(fastest-expt 13 31)
