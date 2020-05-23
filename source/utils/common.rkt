@@ -10,4 +10,8 @@
 
 (define (cube x) (* x x x))
 
-(provide square sum-of-squares average double cube)
+(define (even n) (= (remainder n 2) 0))
+
+(define (halve n) (/ n 2))
+
+(provide square sum-of-squares average double cube even halve)
