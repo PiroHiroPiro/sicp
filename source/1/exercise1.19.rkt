@@ -15,7 +15,7 @@
         a
         b
         (+ (square p) (square q)) ; ⟨??⟩ ; p’ を計算する
-        (+ (double (* p q)) (square q)) ; ⟨??⟩ ; q’ を計算する
+        (+ (* 2 p q)) (square q)) ; ⟨??⟩ ; q’ を計算する
         (/ count 2)
       )
     )

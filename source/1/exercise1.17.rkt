@@ -19,13 +19,16 @@
 ; 9
 (trace-define (* a b)
   (cond
-    ((or (= a 0) (= b 0)) 0)
-    ((= b 1) a)
-    ((even b) (double (* a (halve b))))
+    ((= b 0) 0)
+    ((even b) (* (double a) (halve b)))
     (else (+ a (* a (- b 1))))
   )
 )
 
+(* 4 0)
+(* 4 1)
+(* 0 4)
+(* 1 4)
 (* 3 5) ; 15
 (* 7 18) ; 126
 (* 13 31) ; 403
