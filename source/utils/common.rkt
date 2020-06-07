@@ -28,10 +28,9 @@
 )
 
 (define (gcd a b)
-  (trace-define (trace-remainder n m) (remainder n m))
   (if (= b 0)
     a
-    (gcd b (trace-remainder a b))
+    (gcd b (remainder a b))
   )
 )
 
