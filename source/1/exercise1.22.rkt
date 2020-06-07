@@ -50,7 +50,7 @@
 ; (search-for-primes 10000 10100 3)
 ; (search-for-primes 100000 100100 3)
 
-(define (search-for-primes start end) (search-for-primes-iter (+ start (if (even start) 1 0)) end))
+(define (search-for-primes start end) (search-for-primes-iter (+ start (if (even? start) 1 0)) end))
 (define (search-for-primes-iter start end)
   (when (and (< start end))
     (and (timed-prime-test start) (search-for-primes-iter (+ start 2) end))

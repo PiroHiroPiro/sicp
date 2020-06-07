@@ -23,7 +23,7 @@
     (*
       (cond
         ((or (= k 0) (= k n)) 1)
-        ((even k) 2)
+        ((even? k) 2)
         (else 4)
       )
       (f (+ a (* k h)))
