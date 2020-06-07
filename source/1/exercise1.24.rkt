@@ -48,7 +48,7 @@
       (and (timed-fast-prime-test start) (search-for-fast-primes-iter (+ start 2) end))
     )
   )
-  (search-for-fast-primes-iter (+ start (if (even start) 1 0)) end)
+  (search-for-fast-primes-iter (+ start (if (even? start) 1 0)) end)
 )
 
 (search-for-fast-primes 1000 1100)
