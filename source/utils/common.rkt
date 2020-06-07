@@ -14,4 +14,6 @@
 
 (define (halve n) (/ n 2))
 
-(provide square sum-of-squares average double cube even halve)
+(define (inc x) (+ x 1))
+
+(provide square sum-of-squares average double cube even halve inc)
