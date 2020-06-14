@@ -64,4 +64,18 @@
   )
 )
 
-(provide square sum-of-squares average double cube even? halve inc expt gcd prime? sum repeated)
+(define (abs x)
+  (if (> x 0)
+    x
+    (* x -1)
+  )
+)
+
+(define (log2 x)
+  (/
+    (log x)
+    (log 2)
+  )
+)
+
+(provide square sum-of-squares average double cube even? halve inc expt gcd prime? sum repeated abs log2)

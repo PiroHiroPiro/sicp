@@ -46,7 +46,7 @@
 
 (define (n-th-root x n)
   (fixed-point
-    ((repeated average-damp (round (/ (log n) (log 2)))) (lambda (y) (/ x (expt y (- n 1)))))
+    ((repeated average-damp (round (log2 n))) (lambda (y) (/ x (expt y (- n 1)))))
     1.0
   )
 )
