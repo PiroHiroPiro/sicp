@@ -2,78 +2,54 @@
 
 (require "../utils/common.rkt")
 
-(define (make-segment x y) (cons x y))
-(define (x-point s) (car s))
-(define (y-point s) (cdr s))
-(define (midpoint-segment s1 s2)
-  (make-segment
-    (/ (+ (x-point s1) (x-point s2)) 2)
-    (/ (+ (y-point s1) (y-point s2)) 2)
-  )
-)
+(define (make-segment start end) (cons start end))
+(define (start-segment segment) (car segment))
+(define (end-segment segment) (cdr segment))
 
-(define (print-point p)
-  (display "(")
-  (display (x-point p))
-  (display ",")
-  (display (y-point p))
-  (display ")")
-  (newline)
-)
+(define (make-point x y) (cons x y))
+(define (x-point p) (car p))
+(define (y-point p) (cdr p))
 
-(define (perimeter-segments s1 s2)
-  (double
-    (+
-      (abs (- (x-point s2) (x-point s1)))
-      (abs (- (y-point s2) (y-point s1)))
-    )
-  )
-)
-(define (area-segments s1 s2)
-  (abs (*
-    (- (x-point s2) (x-point s1))
-    (- (y-point s2) (y-point s1))
-  ))
-)
-
-(define a (make-segment 0 4))
-(define b (make-segment 6 0))
-(perimeter-segments a b)
-(area-segments a b)
-
-(define (make-rectangle s1 s2) (cons s1 s2))
-(define (start-rectangle r) (car r))
-(define (end-rectangle r) (cdr r))
-(define (perimeter-rectangle r)
+(define (midpoint-segment segment)
   (let
     (
-      (sx (x-point (start-rectangle r)))
-      (sy (y-point (start-rectangle r)))
-      (ex (x-point (end-rectangle r)))
-      (ey (y-point (end-rectangle r)))
+      (start-point (start-segment segment))
+      (end-point (end-segment segment))
     )
-    (double
-      (+
-        (abs (- ex sx))
-        (abs (- ey sy))
-      )
+    (make-point
+      (/ (+ (x-point start-point) (x-point end-point)) 2)
+      (/ (+ (y-point start-point) (y-point end-point)) 2)
     )
-  )
-)
-(define (area-rectangle r)
-  (let
-    (
-      (sx (x-point (start-rectangle r)))
-      (sy (y-point (start-rectangle r)))
-      (ex (x-point (end-rectangle r)))
-      (ey (y-point (end-rectangle r)))
-    )
-    (abs (* (- ex sx) (- ey sy)))
   )
 )
 
-(define rect (make-rectangle a b))
-(print-point (start-rectangle rect))
-(print-point (end-rectangle rect))
-(perimeter-rectangle rect)
-(area-rectangle rect)
+(define (width-segment segment)
+  (let
+    (
+      (start-point (start-segment segment))
+      (end-point (end-segment segment))
+    )
+    (abs (- (x-point end-point) (x-point start-point)))
+  )
+)
+(define (height-segment segment)
+  (let
+    (
+      (start-point (start-segment segment))
+      (end-point (end-segment segment))
+    )
+    (abs (- (y-point end-point) (y-point start-point)))
+  )
+)
+
+(define (perimeter-segment segment)
+  (double (+ (width-segment segment) (height-segment segment)))
+)
+
+(define (area-segment segment)
+  (* (width-segment segment) (height-segment segment))
+)
+
+(define s (make-segment (make-point 0 4) (make-point 6 0)))
+(perimeter-segment s)
+(area-segment s)
