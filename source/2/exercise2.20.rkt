@@ -9,7 +9,7 @@
       (reverse-iter (cdr l) (cons (car l) r))
     )
   )
-  (reverse-iter l '())
+  (reverse-iter l nil)
 )
 
 (define (same-parity . l)
@@ -21,7 +21,7 @@
         (same-parity-iter (cdr l) (if (parity? (car l)) (cons (car l) spl) spl))
       )
     )
-    (same-parity-iter l '())
+    (same-parity-iter l nil)
   )
 )
 

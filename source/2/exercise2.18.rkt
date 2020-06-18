@@ -9,7 +9,7 @@
       (reverse-iter (cdr l) (cons (car l) r))
     )
   )
-  (reverse-iter l '())
+  (reverse-iter l nil)
 )
 
 (reverse (list 1 4 9 16 25))

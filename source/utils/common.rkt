@@ -80,4 +80,6 @@
   )
 )
 
-(provide square sum-of-squares average double cube even? odd? halve inc expt gcd prime? sum repeated abs log2)
+(define nil '())
+
+(provide square sum-of-squares average double cube even? odd? halve inc expt gcd prime? sum repeated abs log2 nil)
