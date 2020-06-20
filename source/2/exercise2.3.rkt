@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (define (make-segment start end) (cons start end))
 (define (start-segment segment) (car segment))
 (define (end-segment segment) (cdr segment))
@@ -43,7 +41,7 @@
 )
 
 (define (perimeter-segment segment)
-  (double (+ (width-segment segment) (height-segment segment)))
+  (* 2 (+ (width-segment segment) (height-segment segment)))
 )
 
 (define (area-segment segment)

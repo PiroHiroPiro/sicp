@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (define (add-rat x y)
   (make-rat
     (+

@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (define (f-saiki n)
   (if (< n 3)
     n

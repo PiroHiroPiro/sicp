@@ -1,6 +1,6 @@
 #lang racket
 
-(define (inc x) (+ x 1))
+(require "../utils/common.rkt")
 
 (define (double f)
   (lambda (x) (f (f x)))
