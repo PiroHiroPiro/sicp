@@ -12,6 +12,8 @@
 
 (define (even? n) (= (remainder n 2) 0))
 
+(define (odd? n) (= (remainder n 2) 1))
+
 (define (halve n) (/ n 2))
 
 (define (inc x) (+ x 1))
@@ -78,4 +80,6 @@
   )
 )
 
-(provide square sum-of-squares average double cube even? halve inc expt gcd prime? sum repeated abs log2)
+(define nil '())
+
+(provide square sum-of-squares average double cube even? odd? halve inc expt gcd prime? sum repeated abs log2 nil)
