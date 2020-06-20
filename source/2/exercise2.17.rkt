@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (define (last-pair l)
   (if (null? (cdr l))
     l

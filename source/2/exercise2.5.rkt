@@ -9,7 +9,7 @@
 (define (car c)
   (define (car-iter n count)
     (if (even? n)
-      (car-iter (halve n) (+ 1 count))
+      (car-iter (/ n 2) (+ 1 count))
       count
     )
   )

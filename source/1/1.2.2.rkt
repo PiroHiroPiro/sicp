@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (define (count-change amount) (cc amount 5))
 
 (define (cc amount kinds-of-coins)

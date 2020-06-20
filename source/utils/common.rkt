@@ -2,39 +2,15 @@
 
 (define (square x) (* x x))
 
-(define (sum-of-squares x y) (+ (square x) (square y)))
+(define (cube x) (* x x x))
 
 (define (average x y) (/ (+ x y) 2))
-
-(define (double x) (* 2 x))
-
-(define (cube x) (* x x x))
 
 (define (even? n) (= (remainder n 2) 0))
 
 (define (odd? n) (= (remainder n 2) 1))
 
-(define (halve n) (/ n 2))
-
 (define (inc x) (+ x 1))
-
-(define (expt b n)
-  (define (fastest-expt-iter b n a)
-    (cond
-      ((= n 0) a)
-      ((even? n) (fastest-expt-iter (square b) (halve n) a))
-      (else (fastest-expt-iter b (- n 1) (* a b)))
-    )
-  )
-  (fastest-expt-iter b n 1)
-)
-
-(define (gcd a b)
-  (if (= b 0)
-    a
-    (gcd b (remainder a b))
-  )
-)
 
 (define (prime? n)
   (define (smallest-divisor n)
@@ -66,13 +42,6 @@
   )
 )
 
-(define (abs x)
-  (if (> x 0)
-    x
-    (* x -1)
-  )
-)
-
 (define (log2 x)
   (/
     (log x)
@@ -80,6 +49,4 @@
   )
 )
 
-(define nil '())
-
-(provide square sum-of-squares average double cube even? odd? halve inc expt gcd prime? sum repeated abs log2 nil)
+(provide square cube average even? odd? inc prime? sum repeated log2)

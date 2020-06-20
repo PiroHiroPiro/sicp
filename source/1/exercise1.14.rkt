@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (require racket/trace)
 
 (define (count-change amount) (cc amount 5))
