@@ -17,7 +17,7 @@
 )
 
 (define (square-list items)
-  (map (lambda (x) (square x)) items)
+  (map square items)
 )
 
 (square-list (list 1 2 3 4))
