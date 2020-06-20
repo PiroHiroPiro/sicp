@@ -17,6 +17,7 @@
     ((parity? (if (even? (car l)) even? odd?)))
     (define (same-parity-iter l spl)
       (if (null? l)
+        ; append 使えば reverse いらなくなる
         (reverse spl)
         (same-parity-iter (cdr l) (if (parity? (car l)) (cons (car l) spl) spl))
       )
