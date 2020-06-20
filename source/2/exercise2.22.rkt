@@ -36,5 +36,5 @@
 ; (iter (cdr (list 3 4)) (cons (cons nil 1) 4))
 ; (iter (cdr (list 4)) (cons (cons (cons nil 1) 4) 9))
 ; (iter (cdr nil) (cons (cons (cons (cons nil 1) 4) 9) 16))
-; ->
+; =>
 ; (list 1 4 9 16) != (cons (cons (cons (cons nil 1) 4) 9) 16)
