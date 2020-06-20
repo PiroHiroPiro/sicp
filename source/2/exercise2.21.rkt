@@ -4,7 +4,7 @@
 
 (define (square-list items)
   (if (null? items)
-    nil
+    null
     (cons (square (car items)) (square-list (cdr items)))
   )
 )

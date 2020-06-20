@@ -20,13 +20,6 @@
   (lambda (x) (average x (f x)))
 )
 
-(define (repeated f n)
-  (if (= n 1)
-    (lambda (x) (f x))
-    (compose f (repeated f (- n 1)))
-  )
-)
-
 (define (n-root-test x n c)
   (fixed-point
     ((repeated average-damp c) (lambda (y) (/ x (expt y (- n 1)))))

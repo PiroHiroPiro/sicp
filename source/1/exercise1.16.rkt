@@ -37,7 +37,7 @@
 (trace-define (fastest-expt-iter b n a)
   (cond
     ((= n 0) a)
-    ((even? n) (fastest-expt-iter (square b) (halve n) a))
+    ((even? n) (fastest-expt-iter (square b) (/ n 2) a))
     (else (fastest-expt-iter b (- n 1) (* a b)))
   )
 )

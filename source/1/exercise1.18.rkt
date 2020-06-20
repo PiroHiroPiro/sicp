@@ -21,7 +21,7 @@
 ;   (cond
 ;     ((or (= a 0) (= b 0)) 0)
 ;     ((= b 1) a)
-;     ((even? b) (double (* a (halve b))))
+;     ((even? b) (* 2 (* a (/ b 2))))
 ;     (else (+ a (* a (- b 1))))
 ;   )
 ; )
@@ -33,7 +33,7 @@
 (trace-define (*-iter a b n)
   (cond
     ((= b 0) n)
-    ((even? b) (*-iter (double a) (halve b) n))
+    ((even? b) (*-iter (* 2 a) (/ b 2) n))
     (else (*-iter a (- b 1) (+ n a)))
   )
 )

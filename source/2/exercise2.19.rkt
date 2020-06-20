@@ -1,7 +1,5 @@
 #lang racket
 
-(require "../utils/common.rkt")
-
 (define (cc amount coin-values)
   (cond
     ((= amount 0) 1)
