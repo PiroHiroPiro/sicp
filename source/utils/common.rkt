@@ -12,6 +12,7 @@
 
 (define (inc x) (+ x 1))
 
+; 1.2.6
 (define (prime? n)
   (define (smallest-divisor n)
     (define (find-divisor n test-divisor)
@@ -28,6 +29,7 @@
   (= n (smallest-divisor n))
 )
 
+; 1.3.1
 (define (sum term a next b)
   (if (> a b)
     0
@@ -35,6 +37,7 @@
   )
 )
 
+; 1.3.4 - 1.43
 (define (repeated f n)
   (if (= n 1)
     (lambda (x) (f x))
@@ -42,11 +45,28 @@
   )
 )
 
-(define (log2 x)
-  (/
-    (log x)
-    (log 2)
+(define (log2 x) (/ (log x) (log 2)))
+
+; 2.2.3
+(define (enumerate-tree tree)
+  (cond
+    ((null? tree) null)
+    ((not (pair? tree)) (list tree))
+    (else (append (enumerate-tree (car tree)) (enumerate-tree (cdr tree))))
+  )
+)
+(define (filter predicate sequence)
+  (cond
+    ((null? sequence) null)
+    ((predicate (car sequence)) (cons (car sequence)(filter predicate (cdr sequence))))
+    (else (filter predicate (cdr sequence)))
+  )
+)
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+    initial
+    (op (car sequence) (accumulate op initial (cdr sequence)))
   )
 )
 
-(provide square cube average even? odd? inc prime? sum repeated log2)
+(provide square cube average even? odd? inc prime? sum repeated log2 enumerate-tree filter accumulate)
