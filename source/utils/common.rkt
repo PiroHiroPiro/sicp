@@ -69,4 +69,12 @@
   )
 )
 
-(provide square cube average even? odd? inc prime? sum repeated log2 enumerate-tree filter accumulate)
+; 2.2.3 - 2.36
+(define (accumulate-n op init seqs)
+  (if (null? (car seqs))
+    null
+    (cons (accumulate op init (map (lambda (seq) (car seq)) seqs)) (accumulate-n op init (map (lambda (seq) (cdr seq)) seqs)))
+  )
+)
+
+(provide square cube average even? odd? inc prime? sum repeated log2 enumerate-tree filter accumulate accumulate-n)
