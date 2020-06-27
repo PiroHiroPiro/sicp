@@ -77,8 +77,37 @@
   )
 )
 
+(define (flatmap proc seq)
+  (accumulate append null (map proc seq))
+)
+
+(define (enumerate-interval low high)
+  (if (> low high)
+    null
+    (cons low (enumerate-interval (+ low 1) high))
+  )
+)
+
 (define (list-sum l)
   (apply + l)
 )
 
-(provide square cube average even? odd? inc prime? sum repeated log2 enumerate-tree filter accumulate accumulate-n list-sum)
+(provide
+  square
+  cube
+  average
+  even?
+  odd?
+  inc
+  prime?
+  sum
+  repeated
+  log2
+  enumerate-tree
+  filter
+  accumulate
+  accumulate-n
+  flatmap
+  enumerate-interval
+  list-sum
+)

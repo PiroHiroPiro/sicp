@@ -2,17 +2,6 @@
 
 (require "../utils/common.rkt")
 
-(define (flatmap proc seq)
-  (accumulate append null (map proc seq))
-)
-
-(define (enumerate-interval low high)
-  (if (> low high)
-    null
-    (cons low (enumerate-interval (+ low 1) high))
-  )
-)
-
 (define (unique-pairs n)
   (flatmap
     (lambda (i)
