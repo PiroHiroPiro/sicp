@@ -77,4 +77,8 @@
   )
 )
 
-(provide square cube average even? odd? inc prime? sum repeated log2 enumerate-tree filter accumulate accumulate-n)
+(define (list-sum l)
+  (apply + l)
+)
+
+(provide square cube average even? odd? inc prime? sum repeated log2 enumerate-tree filter accumulate accumulate-n list-sum)
