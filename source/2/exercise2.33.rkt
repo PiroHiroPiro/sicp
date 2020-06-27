@@ -15,7 +15,7 @@
 (append (list 1 2 3) (list 4 5 6))
 
 (define (length sequence)
-  (accumulate (lambda (x y) (inc y)) 0 sequence)
+  (accumulate (lambda (_ y) (inc y)) 0 sequence)
 )
 
 (length (list 1 2 3))
