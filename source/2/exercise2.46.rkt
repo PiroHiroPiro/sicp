@@ -17,3 +17,11 @@
 (define (scale-vect vect s)
   (make-vect (* (xcor-vect vect) s) (* (ycor-vect vect) s))
 )
+
+
+(define v1 (make-vect 1 2))
+(define v2 (make-vect 3 5))
+
+(add-vect v1 v2)
+(sub-vect v1 v2)
+(scale-vect v1 2)
