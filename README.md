@@ -12,19 +12,19 @@ A repository for learning the book "Structure and Interpretation of Computer Pro
 Run shell:
 
 ```console
-> docker-compose run racket bash
+$ docker-compose run racket bash
 ```
 
 Run file:
 
 ```console
-> docker-compose run racket racket utils/sample.rkt
+$ docker-compose run racket racket utils/sample.rkt
 ```
 
 Run interactive console:
 
 ```console
-> docker-compose run racket racket
+$ docker-compose run racket racket
 ```
 
 ## Install
