@@ -32,6 +32,6 @@ Run interactive console:
 Clone repository:
 
 ```console
-$ git clone https://github.com/PiroHiroPiro/docker_template_racket.git
-$ cd docker_template_racket
+$ git clone https://github.com/PiroHiroPiro/sicp.git
+$ cd sicp
 ```
