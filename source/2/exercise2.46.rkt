@@ -2,20 +2,20 @@
 
 (define (make-vect x y) (cons x y))
 
-(define (xcor-vect vect) (car vect))
+(define (xcor-vect v) (car v))
 
-(define (ycor-vect vect) (cdr vect))
+(define (ycor-vect v) (cdr v))
 
-(define (add-vect vect1 vect2)
-  (make-vect (+ (xcor-vect vect1) (xcor-vect vect2)) (+ (ycor-vect vect1) (ycor-vect vect2)))
+(define (add-vect v1 v2)
+  (make-vect (+ (xcor-vect v1) (xcor-vect v2)) (+ (ycor-vect v1) (ycor-vect v2)))
 )
 
-(define (sub-vect vect1 vect2)
-  (make-vect (- (xcor-vect vect1) (xcor-vect vect2)) (- (ycor-vect vect1) (ycor-vect vect2)))
+(define (sub-vect v1 v2)
+  (make-vect (- (xcor-vect v1) (xcor-vect v2)) (- (ycor-vect v1) (ycor-vect v2)))
 )
 
-(define (scale-vect vect s)
-  (make-vect (* (xcor-vect vect) s) (* (ycor-vect vect) s))
+(define (scale-vect v s)
+  (make-vect (* (xcor-vect v) s) (* (ycor-vect v) s))
 )
 
 
