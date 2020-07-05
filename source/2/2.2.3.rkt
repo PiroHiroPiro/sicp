@@ -1,5 +1,7 @@
 #lang racket
 
+;; 列の演算
+
 (define (enumerate-tree tree)
   (cond
     ((null? tree) null)
@@ -30,3 +32,65 @@
 (accumulate + 0 (list 1 2 3 4 5))
 (accumulate * 1 (list 1 2 3 4 5))
 (accumulate cons null (list 1 2 3 4 5))
+
+
+;; マップのネスト
+
+(require "../utils/common.rkt")
+
+(define (flatmap proc seq)
+  (accumulate append null (map proc seq))
+)
+
+(define (prime-sum? pair)
+  (prime? (+ (car pair) (cadr pair)))
+)
+
+(define (make-pair-sum pair)
+  (list (car pair) (cadr pair) (+ (car pair) (cadr pair)))
+)
+
+(define (enumerate-interval low high)
+  (if (> low high)
+    null
+    (cons low (enumerate-interval (+ low 1) high))
+  )
+)
+
+(define (prime-sum-pairs n)
+  (map make-pair-sum
+    (filter
+      prime-sum?
+      (flatmap
+        (lambda (i)
+          (map
+            (lambda (j) (list i j))
+            (enumerate-interval 1 (- i 1))
+          )
+        )
+        (enumerate-interval 1 n)
+      )
+    )
+  )
+)
+
+(prime-sum-pairs 6)
+
+(define (permutations s)
+  (if (null? s) ; 集合は空か?
+    (list null) ; 空集合を持つ列
+    (flatmap
+      (lambda (x)
+        (map (lambda (p) (cons x p)) (permutations (remove x s)))
+      )
+    s)
+  )
+)
+
+(permutations (list 1 2 3))
+
+(define (remove item sequence)
+  (filter (lambda (x) (not (= x item))) sequence)
+)
+
+(remove 3 (list 1 2 3 4 3 2 1))
