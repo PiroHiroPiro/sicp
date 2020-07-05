@@ -1,47 +1,55 @@
 #lang racket
 
-(define (transform-painter painter origin corner1 corner2)
+(define (segments->painter segment-list)
   (lambda (frame)
-    (let
-      ((m (frame-coord-map frame)))
-      (let
-        ((new-origin (m origin)))
-        (painter
-          (make-frame
-            new-origin
-            (sub-vect (m corner1) new-origin)
-            (sub-vect (m corner2) new-origin)
-          )
+    (for-each
+      (lambda (segment)
+        (draw-line
+          ((frame-coord-map frame) (start-segment segment))
+          ((frame-coord-map frame) (end-segment segment))
         )
       )
+      segment-list
     )
   )
 )
 
-(define (flip-horiz painter)
-  (transform-painter
-    painter
-    (make-vect 1.0 0.0)
-    (make-vect 0.0 0.0)
-    (make-vect 1.0 1.0)
+;; ref: https://awacio.hatenadiary.org/entry/20100531/1275308856
+(define (frame-painter frame)
+  (segments->painter
+    (list
+      (make-segment (make-point 0.0 0.0) (make-point 0.0 1.0))
+      (make-segment (make-point 0.0 1.0) (make-point 1.0 1.0))
+      (make-segment (make-point 1.0 1.0) (make-point 1.0 0.0))
+      (make-segment (make-point 1.0 0.0) (make-point 0.0 0.0))
+    )
   )
 )
 
-(define (rotate180 painter)
-  (transform-painter
-    painter
-    (make-vect 1.0 1.0)
-    (make-vect 0.0 1.0)
-    (make-vect 1.0 0.0)
+(define (x-painter frame)
+  (segments->painter
+    (list
+      (make-segment (make-point 0.0 0.0) (make-point 1.0 1.0))
+      (make-segment (make-point 0.0 1.0) (make-point 1.0 0.0))
+    )
   )
 )
 
+(define (middle-point-painter frame)
+  (segments->painter
+    (list
+      (make-segment (make-point 0.0 0.5) (make-point 0.5 1.0))
+      (make-segment (make-point 0.5 1.0) (make-point 1.0 0.5))
+      (make-segment (make-point 1.0 0.5) (make-point 0.5 0.0))
+      (make-segment (make-point 0.5 0.0) (make-point 0.0 0.5))
+    )
+  )
+)
 
-(define (rotate270 painter)
-  (transform-painter
-    painter
-    (make-vect 0.0 1.0)
-    (make-vect 0.0 0.0)
-    (make-vect 1.0 1.0)
+(define (wave-painter frame)
+  (segments->painter
+    (list
+      ...
+    )
   )
 )
