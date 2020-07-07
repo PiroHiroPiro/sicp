@@ -27,6 +27,8 @@ Run interactive console:
 $ docker-compose run racket racket
 ```
 
+Exit interactive console: (exit).
+
 ## Install
 
 Clone repository:
